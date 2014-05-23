@@ -1,1 +1,3 @@
-- include: restart_elasticsearch.yml
+---
+- name: restart elasticsearch
+  service: name=elasticsearch state=restarted

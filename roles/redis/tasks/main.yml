@@ -6,6 +6,6 @@
   yum: name={{ item }} state=installed
   with_items:
    - redis
-  notify:
-   - restart redis
 
+- name: Start redis Service
+  service: name=redis state=started enabled=true

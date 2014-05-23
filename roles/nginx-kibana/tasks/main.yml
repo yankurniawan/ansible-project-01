@@ -2,4 +2,3 @@
 - include: nginx.yml
 - include: adduser.yml
 - include: kibana.yml
-- include: vhost_nginx.yml

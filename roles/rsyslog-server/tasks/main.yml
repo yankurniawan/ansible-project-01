@@ -11,3 +11,6 @@
   template: src=rsyslog.j2 dest={{ rsys_conf }} owner=root group=root mode=0644
   notify:
    - restart rsyslog
+
+- name: Start rsyslog Service
+  service: name=rsyslog state=started enabled=true

@@ -9,5 +9,12 @@
   yum: name={{ item }} state=latest
   with_items:
    - elasticsearch
+
+- name: Elasticsearch configuration
+  template: src=elasticsearch.yml.j2 dest={{ elastic_conf }} owner=root group=root mode=0644
   notify:
    - restart elasticsearch
+
+- name: Start Elasticsearch Service
+  service: name=elasticsearch state=started enabled=true
+  
