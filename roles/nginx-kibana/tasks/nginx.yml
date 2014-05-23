@@ -1,0 +1,12 @@
+---
+- name: Install Nginx repo
+  yum: name={{ nginx_repo }} state=installed
+
+- name: Install Nginx
+  yum: name={{ item }} state=latest
+  with_items:
+   - nginx
+   - python-passlib
+  notify:
+   - start nginx
+

@@ -1,0 +1,12 @@
+---
+- name: Create a user to host Kibana
+  user: name={{ username }}
+
+- name: Ensure correct permissions on home directory
+  file: path=/home/{{  username }} mode=0755
+
+- name: Create Vhost public_html
+  file: path=/home/{{ username }}/public_html owner={{ username }} group={{ username }} mode=0755 state=directory
+
+- name: Create Vhost log directory
+  file: path=/home/{{ username }}/logs owner=root group=root mode=0755 state=directory

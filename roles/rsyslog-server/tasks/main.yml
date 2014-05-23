@@ -1,0 +1,13 @@
+---
+- name: Install rsyslog
+  yum: name={{ item }} state=installed
+  with_items:
+   - rsyslog
+
+- name: Create Directory for logs
+  file: path={{ rsys_dir }} owner=root group=root mode=0644 state=directory
+
+- name: Copy Rsyslog Conf
+  template: src=rsyslog.j2 dest={{ rsys_conf }} owner=root group=root mode=0644
+  notify:
+   - restart rsyslog

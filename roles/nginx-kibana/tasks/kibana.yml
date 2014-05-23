@@ -1,0 +1,9 @@
+---
+- name: Get Kibana Archive
+  get_url: url={{ kibana_url }} dest=/home/{{ username }}/public_html/kibana.tar.gz
+
+- name: Extract Kibana
+  command: tar zxf /home/{{ username }}/public_html/kibana.tar.gz -C /home/{{ username }}/public_html/ creates=/home/{{ username }}/public_html/kibana-{{ kibana_version }}
+
+- name: Set permissions for Kibana
+  command: /bin/chown -R nginx.nginx /home/{{ username }}/public_html/

@@ -1,0 +1,18 @@
+# {{ ansible_managed }}
+input {
+	if "for_redis" not in [tags] {
+        file {
+            type => "linux-syslog"
+            path => ["/var/log/hosts/*"]
+            sincedb_path => "{{ sincedb }}"
+            exclude => [ "*.gz" ]
+            codec => plain { charset => "UTF-8" }
+        }
+    }
+}
+filter {
+    if "for_redis" not in [tags] {
+        mutate { add_tag => "for_redis" }
+    }
+}
+# {{ ansible_managed }}

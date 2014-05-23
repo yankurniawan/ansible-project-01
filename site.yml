@@ -1,0 +1,31 @@
+---
+
+- hosts: all
+  roles:
+  - common
+
+- hosts: monitoring
+  user: root
+  roles:
+  - base-apache
+  - nagios
+
+- hosts: webservers
+  user: root
+  roles:
+  - base-apache
+  - web
+
+- hosts: dbservers
+  user: root
+  roles:
+  - db
+
+- hosts: loggers
+  user: root
+  roles:
+  - rsyslog-server
+  - redis
+  - elasticsearch
+  - logstash
+  - nginx-kibana
