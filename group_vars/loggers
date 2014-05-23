@@ -2,12 +2,6 @@
 rsys_conf: "/etc/rsyslog.conf"
 rsys_dir: "/var/log/hosts/"
 
-#EPEL repo for 32 bit
-#epel_url: "http://download.fedoraproject.org/pub/epel/6/i386/epel-release-6-8.noarch.rpm"
-
-#EPEL repo for 64 bit
-epel_url: "http://download.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm"
-
 elasticsearch_version: "1.0"
 elastic_conf: "/etc/elasticsearch/elasticsearch.yml"
 logstash_version: "1.4"

@@ -1,7 +1,4 @@
 ---
-- name: Enable Epel
-  yum: name={{ epel_url}} state=present
-
 - name: Install Redis
   yum: name={{ item }} state=installed
   with_items:
